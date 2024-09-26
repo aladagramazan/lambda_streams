@@ -68,13 +68,12 @@ public class CheckBoxSelectionTest {
 
     @DataProvider(name = "criteriaProvider")
     public Object[] getGender() {
-        Predicate<List<WebElement>> allMale = l -> l.get(1).getText().equalsIgnoreCase("male");
-        Predicate<List<WebElement>> allFemale = l -> l.get(1).getText().equalsIgnoreCase("female");
-        Predicate<List<WebElement>> allGender = allMale.or(allFemale);
-        Predicate<List<WebElement>> allAu = l -> l.get(2).getText().equalsIgnoreCase("au");
-        Predicate<List<WebElement>> femaleAu = allFemale.and(allAu);
         return new Object[]{
-              allMale, allFemale, allGender, allAu, femaleAu
+                SearchCriteriaFactory.getCriteria("allMale"),
+                SearchCriteriaFactory.getCriteria("allFemale"),
+                SearchCriteriaFactory.getCriteria("allGender"),
+                SearchCriteriaFactory.getCriteria("allAu"),
+                SearchCriteriaFactory.getCriteria("femaleAu")
         };
     }
 
